@@ -15,7 +15,7 @@ export const handler = middy(
       if(newTodo.name.trim() == ""){
         return {
           statusCode: 400,
-          body: "Enter a task name!"
+          body: "Please enter a task name!"
         }
       }else{
         const jwtToken = getToken(event.headers.Authorization)

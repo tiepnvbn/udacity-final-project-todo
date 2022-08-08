@@ -8,6 +8,12 @@
     },
     "dueDate": {
       "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
     }
   },
   "required": [

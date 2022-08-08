@@ -11,6 +11,12 @@
     },
     "done": {
       "type": "boolean"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
     }
   },
   "required": [

@@ -29,9 +29,9 @@ provider:
   # Use these variables in the functions and resouorces section below. For example, 
   # ${self:provider.environment.ATTACHMENT_S3_BUCKET}
   environment:
-    TODOS_TABLE: Todos-${self:provider.stage}
+    TODOS_TABLE: Todos-task-${self:provider.stage}
     TODOS_USER_INDEX: TodoUserIndex
-    ATTACHMENT_S3_BUCKET: serverless-final-todo-images-284614606815-${self:provider.stage}
+    ATTACHMENT_S3_BUCKET: p5-final-todo-284614606815-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
     JWTS_URL: https://dev--ehqvu3i.us.auth0.com/.well-known/jwks.json
 
@@ -174,7 +174,6 @@ functions:
         Action: "s3:DeleteObject"
         Resource: "arn:aws:s3:::${self:provider.environment.ATTACHMENT_S3_BUCKET}/*"
 
-
   # TODO: Configure this function
   # Provide property for setting up CORS, Authorizer, iamRoleStatements
   GenerateUploadUrl:
@@ -185,6 +184,7 @@ functions:
           path: todos/{todoId}/attachment
           cors: true
           authorizer: Auth
+    iamRoleStatementsName: s3-role-put-get
     iamRoleStatements:
       - Effect: Allow
         Action:
